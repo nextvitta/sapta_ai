@@ -1,0 +1,6 @@
+{
+  "name": "SAPTA-AI",
+  "description": "SAPTA-AI (Spatial Analytics & Predictive Tourism Assistance AI) - Platform Geospasial Pariwisata Cerdas Kabupaten Tana Tidung - Kalimantan Utara dengan pemantauan pengunjung real-time, statistik MPD BPS Kaltara, radar tren media sosial, sensor crowd control & kebencanaan, serta prakiraan cuaca BMKG.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

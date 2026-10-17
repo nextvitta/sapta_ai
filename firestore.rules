@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Destinasi Wisata Geospasial Kabupaten Tana Tidung
+    match /destinations/{destinationId} {
+      // Izinkan pembacaan publik untuk visualisasi peta, widget cuaca, dan monitoring wisatawan
+      allow read: if true;
+
+      // Izinkan penyimpanan dan pembaruan data destinasi dengan validasi field esensial
+      allow create, update: if request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.lat is number
+        && request.resource.data.lng is number;
+
+      // Izinkan penghapusan data destinasi dari panel admin
+      allow delete: if true;
+    }
+
+    // Dokumen pengujian koneksi Firestore
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

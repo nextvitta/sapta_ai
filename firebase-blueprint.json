@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "destination": {
+      "title": "Destination",
+      "description": "Wisata geospasial Kabupaten Tana Tidung dengan sensor IoT dan kapasitas pengunjung",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "ID unik destinasi" },
+        "name": { "type": "string", "description": "Nama destinasi wisata" },
+        "kecamatan": { "type": "string", "description": "Kecamatan di Tana Tidung" },
+        "category": { "type": "string", "description": "Kategori wisata" },
+        "lat": { "type": "number", "description": "Lintang geografis" },
+        "lng": { "type": "number", "description": "Bujur geografis" },
+        "description": { "type": "string", "description": "Deskripsi destinasi" },
+        "openingHours": { "type": "string", "description": "Jam operasional" },
+        "ticketPrice": { "type": "number", "description": "Harga tiket (IDR)" },
+        "maxCapacity": { "type": "number", "description": "Daya tampung maksimum" },
+        "currentVisitors": { "type": "number", "description": "Jumlah pengunjung aktual" },
+        "status": { "type": "string", "description": "Status kepadatan (NORMAL, WASPADA, PENUH, BAHAYA)" },
+        "imageUrl": { "type": "string", "description": "URL foto destinasi" },
+        "sensors": { "type": "object", "description": "Telemetri sensor IoT EWS dan limbah" },
+        "facilities": { "type": "array", "description": "Fasilitas wisata" },
+        "contactPerson": { "type": "string", "description": "Narahubung / Pokdarwis" },
+        "isPopular": { "type": "boolean", "description": "Tanda destinasi unggulan" },
+        "googlePlaceId": { "type": "string", "description": "ID Google Places" },
+        "updatedAt": { "type": "string", "description": "Waktu pembaruan terakhir" }
+      },
+      "required": ["id", "name", "kecamatan", "category", "lat", "lng", "maxCapacity", "currentVisitors", "status"]
+    }
+  },
+  "firestore": {
+    "/destinations/{destinationId}": {
+      "schema": "destination",
+      "description": "Koleksi data destinasi wisata dan telemetri sensor Kabupaten Tana Tidung"
+    }
+  }
+}
